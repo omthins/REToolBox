@@ -1,0 +1,44 @@
+<Page x:Class="REToolBox.Views.Win10InfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+    <Grid Background="Transparent">
+        <!-- 可滚动内容区域 -->
+        <ScrollViewer Margin="24" Padding="0,0,0,80">
+            <StackPanel>
+                <!-- 标题 -->
+                <TextBlock Text="Windows 10" Style="{ThemeResource TitleTextBlockStyle}" />
+
+
+                <!-- 系统简介 -->
+                <TextBlock Text="Windows 10 是微软推出的一款现代化操作系统，于 2015 年正式发布。它融合了 Windows 7 的经典桌面体验与 Windows 8 的现代界面设计，提供更流畅、更智能的操作体验。" Margin="0,10" TextWrapping="Wrap" />
+
+                <!-- 系统要求 -->
+                <TextBlock Text="系统要求：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 1 GHz 或更快的处理器&#10;• 1 GB RAM（32 位）或 2 GB RAM（64 位）&#10;• 16 GB（32 位）或 20 GB（64 位）可用存储空间&#10;• DirectX 9 或更高版本图形设备" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 版本信息 -->
+                <TextBlock Text="主要版本：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 家庭版（Home）&#10;• 专业版（Pro）&#10;• 企业版（Enterprise）&#10;• 教育版（Education）" Margin="0,0,0,10" />
+
+                <!-- 特色功能 -->
+                <TextBlock Text="特色功能：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 全新开始菜单（融合经典与现代风格）&#10;• Microsoft Edge 浏览器&#10;• Cortana 智能助手&#10;• 时间线（Timeline）功能&#10;• 支持虚拟桌面" Margin="0,0,0,10" />
+
+                <!-- 生命周期 -->
+                <TextBlock Text="生命周期：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="Windows 10 的主流支持将持续至 2025 年 10 月 14 日，企业版和教育版部分版本可延长支持。" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 推荐用途 -->
+                <TextBlock Text="适用场景：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 个人电脑&#10;• 商用设备&#10;• 教育机构&#10;• 开发者平台" Margin="0,0,0,10" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 固定在右下角的按钮 -->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,24,24">
+            <Button Content="前往官方下载" Click="OpenOfficialWin10" Style="{ThemeResource AccentButtonStyle}" Margin="0,0,12,0"/>
+            <Button Content="第三方下载" Click="OpenThirdPartyWin10" Style="{ThemeResource AccentButtonStyle}" />
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="REToolBox.Views.DownloaderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:REToolBox.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    AllowDrop="True"
+    DragOver="Page_DragOver"
+    Drop="Page_Drop">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20" Spacing="10">
+            <TextBox x:Name="UrlTextBox" PlaceholderText="请输入下载链接 (HTTP/HTTPS/FTP/SFTP/Magnet/BT/迅雷专用链)" />
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button x:Name="AddDownloadButton" Content="添加下载" Click="AddDownloadButton_Click"/>
+                <Button x:Name="SelectFolderButton" Content="选择下载位置" Click="SelectFolderButton_Click"/>
+                <Button x:Name="OpenFolderButton" Content="打开下载位置" Click="OpenFolderButton_Click"/>
+                <Button x:Name="SettingsButton" Content="设置" Click="SettingsButton_Click"/>
+                <TextBlock x:Name="DownloadPathTextBlock" Text="下载位置: 下载文件夹" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Grid.Row="1" x:Name="DownloadListView" Margin="20,0,20,20" ItemsSource="{x:Bind DownloadItems, Mode=OneWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:DownloadItem">
+                    <Grid Padding="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Bind FileName}" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Bind Url}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontSize="12" TextWrapping="Wrap"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Bind Status}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontSize="12"/>
+
+                        <ProgressBar Grid.Row="2" Grid.Column="0" Value="{x:Bind Progress, Mode=OneWay}" Maximum="100" Height="4" Margin="0,15,0,0"/>
+
+                        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{x:Bind Progress, Mode=OneWay}" VerticalAlignment="Center"/>
+                            <TextBlock Text="%" VerticalAlignment="Center" Margin="2,0,10,0"/>
+                            <Button Content="取消" Click="CancelButton_Click" Tag="{x:Bind}" Margin="0,0,5,0"/>
+                            <Button Content="打开文件" Click="OpenFileButton_Click" Tag="{x:Bind}" IsEnabled="{x:Bind IsCompleted}" Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <InfoBar x:Name="DownloadInfoBar" Grid.Row="2" IsOpen="False" Severity="Success"/>
+
+        <ContentDialog x:Name="SettingsDialog"
+                      Title="下载设置"
+                      PrimaryButtonText="保存"
+                      CloseButtonText="取消"
+                      PrimaryButtonClick="SettingsDialog_PrimaryButtonClick">
+            <ScrollViewer>
+                <StackPanel Spacing="10">
+                    <NumberBox x:Name="ThreadCountBox" 
+                              Header="下载线程数" 
+                              Minimum="1" 
+                              Maximum="32" 
+                              SpinButtonPlacementMode="Inline"
+                              Value="{x:Bind DownloadSettings.ThreadCount, Mode=TwoWay}"/>
+
+                    <NumberBox x:Name="DiskCacheBox" 
+                              Header="磁盘缓存 (MB)" 
+                              Minimum="1" 
+                              Maximum="1024" 
+                              SpinButtonPlacementMode="Inline"
+                              Value="{x:Bind DownloadSettings.DiskCacheMB, Mode=TwoWay}"/>
+
+                    <ToggleSwitch x:Name="ShowSpeedToggle" 
+                                 Header="显示下载速度" 
+                                 IsOn="{x:Bind DownloadSettings.ShowSpeed, Mode=TwoWay}"/>
+
+                    <TextBlock Text="注意：部分设置需要重启应用程序才能生效" 
+                              Foreground="{ThemeResource TextFillColorSecondaryBrush}" 
+                              FontSize="12" 
+                              TextWrapping="Wrap"/>
+                </StackPanel>
+            </ScrollViewer>
+        </ContentDialog>
+    </Grid>
+</Page>

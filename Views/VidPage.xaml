@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="REToolBox.Views.VidPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:REToolBox.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="视频损坏工具" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Button Grid.Row="1" Content="选择视频文件" Click="SelectFileButton_Click" Margin="0,0,0,10"/>
+            <TextBlock Grid.Row="2" x:Name="SelectedFileTextBlock" Text="未选择文件" Margin="0,0,0,20"/>
+            <TextBlock Grid.Row="3" Text="损坏设置" FontSize="18" Margin="0,0,0,10"/>
+
+            <Grid x:Name="SettingsGrid" Grid.Row="4" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="每多少KB检查一次:" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="IntervalTextBox" Text="100" Margin="10,0,0,5"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="每次损坏字节数:" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="BytesTextBox" Text="10" Margin="10,0,0,5"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="损坏概率(%):" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="ProbabilityTextBox" Text="50" Margin="10,0,0,0"/>
+            </Grid>
+
+            <CheckBox Grid.Row="5" x:Name="RandomCheckBox" Content="随机损坏" Margin="0,0,0,10" Checked="RandomCheckBox_Checked" Unchecked="RandomCheckBox_Unchecked"/>
+            <Button Grid.Row="6" x:Name="ProcessButton" Content="开始损坏" Click="ProcessButton_Click" IsEnabled="False" Margin="0,0,0,20"/>
+            <ProgressBar Grid.Row="7" x:Name="ProgressBarControl" Visibility="Collapsed" IsIndeterminate="True" Margin="0,0,0,10"/>
+            <TextBlock Grid.Row="7" x:Name="StatusTextBlock" Text="" Margin="0,30,0,0"/>
+        </Grid>
+    </ScrollViewer>
+</Page>

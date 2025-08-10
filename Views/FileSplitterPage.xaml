@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="REToolBox.Views.FileSplitterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:REToolBox.Views"
+    Background="Transparent">
+
+    <Grid Padding="24">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+            <TextBlock Text="文件分割工具" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center"/>
+
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="24"
+                    MaxWidth="500">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="点击下方按钮启动独立的文件分割工具应用(由new_pointer提供)"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                    <Button x:Name="FileSplitterButton"
+                            Content="启动文件分割工具"
+                            Padding="16,10"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Click="FileSplitterButton_Click"
+                            HorizontalAlignment="Center"
+                            Style="{ThemeResource AccentButtonStyle}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+<Page x:Class="REToolBox.Views.Win81InfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+    <Grid Background="Transparent">
+        <!-- 可滚动内容区域 -->
+        <ScrollViewer Margin="24" Padding="0,0,0,80">
+            <StackPanel>
+                <!-- 标题 -->
+                <TextBlock Text="Windows 8.1" Style="{ThemeResource TitleTextBlockStyle}" />
+
+
+
+                <!-- 简介 -->
+                <TextBlock Text="Windows 8.1 是微软在 2013 年推出的 Windows 8 的升级版本，旨在解决 Windows 8 中用户的反馈问题，特别是对桌面用户的优化。" Margin="0,10,0,5" TextWrapping="Wrap" />
+                <TextBlock Text="它重新引入了开始按钮，并对 Modern UI（Metro）界面进行了改进，同时保留了触控体验，适用于平板和二合一设备。" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 系统要求 -->
+                <TextBlock Text="系统要求：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 处理器：1 GHz 或更快的兼容处理器&#10;• 内存：1 GB RAM（32 位）或 2 GB RAM（64 位）&#10;• 存储：16 GB 可用空间&#10;• 显卡：支持 DirectX 9 的显卡" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 功能亮点 -->
+                <TextBlock Text="功能亮点：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 重新引入开始按钮（可选 Classic Shell）&#10;• 支持全屏和窗口化 Modern 应用&#10;• 改进的多任务处理&#10;• 更好的云服务集成（如 OneDrive）" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 生命周期 -->
+                <TextBlock Text="生命周期：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="Windows 8.1 的主流支持已于 2018 年结束，扩展支持将持续至 2023 年 1 月 10 日。微软建议用户升级至更新版本。" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 推荐用途 -->
+                <TextBlock Text="适用场景：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 平板设备或二合一笔记本&#10;• 企业遗留系统支持&#10;• 个人用户过渡使用" Margin="0,0,0,10" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 固定在右下角的按钮 -->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,24,24">
+            <Button Content="前往 MSDN 下载" Click="OpenMSDN_Win8_1" Style="{ThemeResource AccentButtonStyle}" Margin="0,0,12,0"/>
+            <Button Content="第三方下载" Click="OpenMSDN_Win8_1" Style="{ThemeResource AccentButtonStyle}" />
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="REToolBox.Views.DevPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="">
+
+    <ScrollViewer>
+        <StackPanel Padding="20" Spacing="10">
+            <Button Content="人机助手" Click="NavigateToAiPage"/>
+            <Button Content="下载器" Click="NavigateToDownloaderPage"/>
+            <Button Content="文件分割工具" Click="NavigateToFileSplitterPage"/>
+            <Button Content="官网" Click="NavigateToHashPage"/>
+            <Button Content="密钥生成器" Click="NavigateToKeyGeneratorPage"/>
+            <Button Content="主页" Click="NavigateToMainPage"/>
+            <Button Content="MSDN简介" Click="NavigateToMSDNPage"/>
+            <Button Content="工具" Click="NavigateToNewToolPage"/>
+            <Button Content="系统镜像下载" Click="NavigateToOSPage"/>
+            <Button Content="设置" Click="NavigateToSettingsPage"/>
+            <Button Content="ShellPage" Click="NavigateToShellPage"/>
+            <Button Content="工具（旧）" Click="NavigateToToolPage"/>
+            <Button Content="Win10简介" Click="NavigateToWin10InfoPage"/>
+            <Button Content="Win11简介" Click="NavigateToWin11InfoPage"/>
+            <Button Content="Win7简介" Click="NavigateToWin7InfoPage"/>
+            <Button Content="Win8.1简介" Click="NavigateToWin81InfoPage"/>
+            <Button Content="文件分割工具（测试）" Click="NavigateToXsPage"/>
+            <Button Content="函数生成器" Click="NavigateToMathPage"/>
+            <Button Content="网页部署" Click="NavigateToJsqPage"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

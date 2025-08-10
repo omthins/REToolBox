@@ -1,0 +1,43 @@
+<Page x:Class="REToolBox.Views.Win11InfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+    <Grid Background="Transparent">
+        <!-- 可滚动内容区域 -->
+        <ScrollViewer Margin="24" Padding="0,0,0,80">
+            <StackPanel>
+                <!-- 标题 -->
+                <TextBlock Text="Windows 11" Style="{ThemeResource TitleTextBlockStyle}" />
+
+                <!-- 简介 -->
+                <TextBlock Text="Windows 11 是微软公司研发的最新操作系统，旨在提供现代且用户友好的体验。" Margin="0,10,0,5" TextWrapping="Wrap" />
+                <TextBlock Text="它于 2021 年 6 月 24 日正式发布，并于同年 10 月 5 日上市。" Margin="0,0,0,5" TextWrapping="Wrap" />
+                <TextBlock Text="Windows 11 具有时尚的界面、改进的性能和新功能，旨在提高用户的工作效率和乐趣。" Margin="0,0,0,5" TextWrapping="Wrap" />
+                <TextBlock Text="此外，Windows 11 还采用了居中的任务栏和开始菜单，窗口圆角化，整体设计更加简洁美观。" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 系统要求 -->
+                <TextBlock Text="系统要求：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 处理器：1 GHz 或更快的兼容 64 位处理器或系统单芯片（SoC）" Margin="0,0,0,4" TextWrapping="Wrap" />
+                <TextBlock Text="• 内存：至少 4 GB RAM" Margin="0,0,0,4" TextWrapping="Wrap" />
+                <TextBlock Text="• 存储：至少 64 GB 的可用存储空间" Margin="0,0,0,4" TextWrapping="Wrap" />
+                <TextBlock Text="• 系统固件：支持 UEFI 和安全启动" Margin="0,0,0,4" TextWrapping="Wrap" />
+                <TextBlock Text="• TPM：TPM 版本 2.0" Margin="0,0,0,4" TextWrapping="Wrap" />
+                <TextBlock Text="• 显卡：DirectX 12 兼容的显卡或集成显卡，支持 WDDM 2.0" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 功能亮点 -->
+                <TextBlock Text="功能亮点：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 居中任务栏与开始菜单&#10;• 窗口圆角与动画效果&#10;• Android 应用（需安装WSA）&#10;• 改进的多任务处理（桌面布局）&#10;• 与 Microsoft Teams 深度整合" Margin="0,0,0,10" TextWrapping="Wrap" />
+
+                <!-- 推荐用途 -->
+                <TextBlock Text="适用人群：" FontWeight="Bold" Margin="0,10,0,5" />
+                <TextBlock Text="• 个人用户&#10;• 企业用户&#10;• 开发者&#10;• 教育机构" Margin="0,0,0,10" TextWrapping="Wrap" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 固定在右下角的按钮 -->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,24,24">
+            <Button Content="前往官方下载" Click="OpenOfficialWin11" Style="{ThemeResource AccentButtonStyle}" Margin="0,0,12,0"/>
+            <Button Content="第三方下载" Click="OpenThirdPartyWin11" Style="{ThemeResource AccentButtonStyle}" />
+        </StackPanel>
+    </Grid>
+</Page>
